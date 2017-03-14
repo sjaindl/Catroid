@@ -36,11 +36,16 @@ import android.widget.AdapterView;
 import org.catrobat.catroid.BuildConfig;
 import org.catrobat.catroid.ProjectManager;
 import org.catrobat.catroid.R;
+import org.catrobat.catroid.common.Constants;
 import org.catrobat.catroid.ui.dialogs.AboutDialogFragment;
 import org.catrobat.catroid.ui.dialogs.TermsOfUseDialogFragment;
 import org.catrobat.catroid.utils.TextSizeUtil;
 import org.catrobat.catroid.utils.ToastUtil;
+import org.catrobat.catroid.utils.UtilFile;
+import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
+
+import java.io.File;
 
 public abstract class BaseActivity extends Activity {
 
@@ -137,6 +142,11 @@ public abstract class BaseActivity extends Activity {
 			case R.id.menu_login:
 				ProjectManager.getInstance().showSignInDialog(this, false);
 				return true;
+			case R.id.menu_reset:
+				ProjectManager.getInstance().setProject(null);
+				deleteAllProjects();
+				createRoverProject();
+				return true;
 			default:
 				break;
 		}
@@ -187,5 +197,15 @@ public abstract class BaseActivity extends Activity {
 
 	public void setTitleActionBar(String titleActionBar) {
 		this.titleActionBar = titleActionBar;
+	}
+
+	private void deleteAllProjects() {
+		UtilFile.deleteDirectory(new File(Constants.DEFAULT_ROOT));
+	}
+
+	private void createRoverProject() {
+		String zipFileName = "8946.zip";
+		UtilFile.copyAssetProjectZipFile(this, zipFileName, Constants.TMP_PATH);
+		UtilZip.unZipFile(Constants.TMP_PATH + "/" + zipFileName, Constants.DEFAULT_ROOT + "/Rover Steuerung mit Nachrichten");
 	}
 }

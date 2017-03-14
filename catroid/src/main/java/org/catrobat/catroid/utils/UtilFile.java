@@ -378,6 +378,37 @@ public final class UtilFile {
 		return true;
 	}
 
+	public static void copyAssetProjectZipFile(Context context, String fileName, String destinationFolder) {
+		File dstFolder = new File(destinationFolder);
+		dstFolder.mkdirs();
+
+		InputStream inputStream = null;
+		FileOutputStream outputStream = null;
+		try {
+			inputStream = context.getResources().getAssets().open(fileName);
+			outputStream = new FileOutputStream(destinationFolder + "/" + fileName);
+			byte[] buffer = new byte[1024];
+			int read;
+			while ((read = inputStream.read(buffer)) != -1) {
+				outputStream.write(buffer, 0, read);
+			}
+			outputStream.flush();
+		} catch (IOException exception) {
+			Log.e(TAG, "cannot copy asset project", exception);
+		} finally {
+			try {
+				if (inputStream != null) {
+					inputStream.close();
+				}
+				if (outputStream != null) {
+					outputStream.close();
+				}
+			} catch (IOException exception) {
+				Log.e(TAG, "Error closing streams", exception);
+			}
+		}
+	}
+
 	public enum FileType {
 		TYPE_IMAGE_FILE, TYPE_SOUND_FILE
 	}

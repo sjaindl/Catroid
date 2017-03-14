@@ -87,6 +87,7 @@ import org.catrobat.catroid.utils.UtilUi;
 import org.catrobat.catroid.utils.UtilZip;
 import org.catrobat.catroid.utils.Utils;
 
+import java.io.File;
 import java.util.Locale;
 import java.util.concurrent.locks.Lock;
 
@@ -195,7 +196,8 @@ public class MainMenuActivity extends BaseActivity implements OnLoadProjectCompl
 		Runnable r = new Runnable() {
 			@Override
 			public void run() {
-				UtilFile.createStandardProjectIfRootDirectoryIsEmpty(activity);
+
+
 				activity.runOnUiThread(new Runnable() {
 					@Override
 					public void run() {

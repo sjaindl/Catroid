@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:713919797763:android:d9d5e2274e070833",
         "android_client_info": {
-          "package_name": "org.catrobat.catroid"
+          "package_name": "org.catrobat.catroid.rover"
         }
       },
       "oauth_client": [

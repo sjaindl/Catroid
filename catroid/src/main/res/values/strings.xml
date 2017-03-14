@@ -1598,5 +1598,5 @@
     <!--  -->
 
     <!-- Accessibility -->
-
+    <string name="menu_reset">Reset</string>
 </resources>

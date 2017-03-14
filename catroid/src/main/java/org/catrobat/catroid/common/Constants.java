@@ -69,6 +69,7 @@ public final class Constants {
 	public static final String TMP_LOOKS_PATH = TMP_PATH + "/looks";
 	public static final String TMP_SOUNDS_PATH = TMP_PATH + "/sounds";
 
+
 	public static final String BACKPACK_SOUND_DIRECTORY = "backpack_sound";
 	public static final String BACKPACK_IMAGE_DIRECTORY = "backpack_image";
 	public static final String NUMBER_OF_BRICKS_INSERTED_FROM_BACKPACK = "NUMBER_OF_BRICKS_INSERTED";
