@@ -66,6 +66,7 @@ public final class Constants {
 	public static final String DEFAULT_ROOT = Environment.getExternalStorageDirectory().getAbsolutePath()
 			+ "/Pocket Code";
 	public static final String TMP_PATH = DEFAULT_ROOT + "/tmp";
+	public static final String TMP_TRANSLATION_PATH = TMP_PATH + "/strings-generated.xml";
 	public static final String TMP_IMAGE_PATH = TMP_PATH + "/PocketPaintImage.tmp";
 	public static final String TEXT_TO_SPEECH_TMP_PATH = TMP_PATH + "/textToSpeech";
 	public static final String IMAGE_DIRECTORY = "images";
@@ -275,6 +276,7 @@ public final class Constants {
 	public static final String CREATE_AT_SCHOOL_USER = "nolbUser";
 	public static final String TMP_TEMPLATES_PATH = TMP_PATH + "/templates";
 
+	public static final String TEMPLATE_TRANSLATION_PREFIX = "template_";
 	public static final String TRANSLATION_SCENE = "_scene_";
 	public static final String TRANSLATION_SPRITE = "_sprite_";
 	public static final String TRANSLATION_SOUND = "_sound_";

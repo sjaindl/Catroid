@@ -111,7 +111,7 @@ public class ProjectActivity extends BaseCastActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		initializeFacebookSdk();
+		initializeFacebookSdk(); //TODO: Login build flag!
 
 		setContentView(R.layout.activity_project);
 
