@@ -79,7 +79,6 @@
   <!-- Hints Templates/Accessibility -->
   <string name="hint_accessibility">Ändere diese Einstellung nach deinen Bedürfnissen oder gehe in die vordefinierten Profilen und wähle einen der Götter um dir mit diesen Einstellungen zu helfen.</string>
   <string name="hint_accessibility_profiles">Wähle ein Profil das dir mit der Create@School App behilflich ist. Welches passt zu dir?</string>
-  <string name="hint_templates">Choose one of the predefined templates and modify it.</string>
 
   <string name="templates_activity_title">Vorlagen</string>
   <string name="fetching_templates">Abrufen der Vorlagen</string>
