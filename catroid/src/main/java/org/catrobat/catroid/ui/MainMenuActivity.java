@@ -57,7 +57,6 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 
@@ -183,7 +182,6 @@ public class MainMenuActivity extends BaseCastActivity implements OnLoadProjectC
 		if (!Utils.checkForExternalStorageAvailableAndDisplayErrorIfNot(this)) {
 			return;
 		}
-		AppEventsLogger.activateApp(this);
 
 		SettingsActivity.setLegoMindstormsNXTSensorChooserEnabled(this, false);
 		SettingsActivity.setLegoMindstormsEV3SensorChooserEnabled(this, false);
@@ -224,8 +222,6 @@ public class MainMenuActivity extends BaseCastActivity implements OnLoadProjectC
 		if (!Utils.externalStorageAvailable()) {
 			return;
 		}
-
-		AppEventsLogger.deactivateApp(this);
 
 		Project currentProject = ProjectManager.getInstance().getCurrentProject();
 		if (currentProject != null) {
