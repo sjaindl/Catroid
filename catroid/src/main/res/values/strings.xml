@@ -146,61 +146,6 @@
     <string name="preference_raspi_host">Raspberry Pi IP-/Host-Address</string>
     <string name="preference_raspi_port">Raspberry Pi Port</string>
     <!--  -->
-    <!-- -->
-    <string name="preference_title_access">Accessibility</string>
-    <string name="preference_description_access">Choose a profile and configurate your personal settings for the app UI</string>
-    <string name="preference_access_title_activity_access">Accessibility preferences</string>
-    <string name="preference_access_profiles">Profiles</string>
-    <string name="preference_access_predefined_profiles">Predefined profiles</string>
-    <string name="preference_access_active_profile">Active profile</string>
-    <string name="preference_access_selected_profile">Selected profile</string>
-    <string name="preference_access_change_profile">Switch to predefined profiles</string>
-    <string name="preference_access_apply_profile">Apply this profile</string>
-    <string name="preference_access_settings">Settings</string>
-    <string name="preference_access_title_large_text">Large text</string>
-    <string name="preference_access_summary_large_text">The large text setting increases the text size.</string>
-    <string name="preference_access_choose_fontface">Choose a fontface</string>
-    <string name="preference_access_title_fontface">Fontface</string>
-    <string name="preference_access_summary_fontface">Fontface allows you to choose a font style you prefer.</string>
-    <string name="preference_access_title_fontface_standard">Standard</string>
-    <string name="preference_access_title_fontface_serif">Serif</string>
-    <string name="preference_access_title_fontface_dyslexic">Dyslexic</string>
-    <string name="preference_access_title_high_contrast">High contrast</string>
-    <string name="preference_access_summary_high_contrast">Increases the contrast and makes the text on bricks easier to read.</string>
-    <string name="preference_access_title_additional_icons">Additional icons</string>
-    <string name="preference_access_summary_additional_icons">Adds icons to categories and bricks to improve recognizability.</string>
-    <string name="preference_access_title_large_icons">Large icons</string>
-    <string name="preference_access_summary_large_icons">Increases the size of icons.</string>
-    <string name="preference_access_title_high_contrast_icons">Icon contrast</string>
-    <string name="preference_access_summary_high_contrast_icons">Changes the brick icons to high contrast icons.
-       </string>
-    <string name="preference_access_title_largeelementspacing">Large element spacing</string>
-    <string name="preference_access_summary_largeelementspacing">The large element spacing increase the space
-       between touchable elements.</string>
-    <string name="preference_access_title_starter_bricks">Starter bricks</string>
-    <string name="preference_access_summary_starter_bricks">Shows only starter bricks for ease of learning.</string>
-    <string name="preference_access_title_dragndrop_delay">Drag\'n\'drop delay</string>
-    <string name="preference_access_summary_dragndrop_delay">Adds delay to the drag\'n\'drop of bricks.</string>
-    <string name="preference_access_title_profile_standard">Standard</string>
-    <string name="preference_access_summary_profile_standard">The standard settings</string>
-    <string name="preference_access_title_profile_myprofile">My Profile</string>
-    <string name="preference_access_summary_profile_myprofile">My personal settings</string>
-    <string name="preference_access_title_profile_1">Argus</string>
-    <string name="preference_access_summary_profile_1">Visual improvement: High contrast, additional icons</string>
-    <string name="preference_access_title_profile_2">Odin</string>
-    <string name="preference_access_summary_profile_2">Visual improvement: Large text, large icons, large element
-       spacing, high contrast</string>
-    <string name="preference_access_title_profile_3">Fenrir</string>
-    <string name="preference_access_summary_profile_3">Input improvement: Large element spacing, drag\'n\'drop
-       delay</string>
-    <string name="preference_access_title_profile_4">Tiro</string>
-    <string name="preference_access_summary_profile_4">Learning: Starter bricks</string>
-    <string name="preference_access_title_created_profile">Created profile</string>
-    <string name="preference_access_summary_created_profile">You have created a new profile! The changes you
-       make can be found in \'My Profile\'</string>
-    <string name="preference_access_title_restart">Profile applied</string>
-    <string name="preference_access_summary_restart">Pocket Code will be restarted to apply the changes you
-       made.</string>
 
     <!-- Scratch Converter activity -->
     <string name="beta">beta</string>
@@ -1123,7 +1068,6 @@
     <string name="error_no_whatsapp">WhatsApp not installed</string>
     <string name="error_unsupported_bricks_chromecast">Cannot add bricks contained in this script to a Chromecast
         program.</string>
-    <string name="error_no_nolb_user">This is a beta-version. You can only use it with a predefined school account.</string>
     <string name="error_extracting_program">Error extracting program.</string>
     <!--  -->
 
@@ -1729,9 +1673,6 @@
        device, tap "Axes on".</string>
     <string name="hint_scenes">A program can consist of different independent scenes. To add a new scene, tap on the "+"
        symbol.</string>
-    <string name="hint_accessibility">Change the listed settings as you wish or switch to predefined profiles to choose a god to help you with these settings.</string>
-    <string name="hint_accessibility_profiles">Choose a guide to help you with Create@School. Which one fits to you?</string>
-    <string name="hint_templates">Choose one of the predefined templates and modify it.</string>
     <!--  -->
 
     <!-- Crash report dialog -->
@@ -1740,16 +1681,90 @@
     <string name="crash_dialog_always_send">Always send</string>
     <string name="crash_dialog_send">Send</string>
     <string name="plus" translatable="false">+</string>
-    <!--  -->
 
+    <!--  EDU -->
+    <!-- -->
+    <string name="preference_title_access" type="edu">Accessibility</string>
+    <string name="preference_description_access" type="edu">Choose a profile and configurate your personal settings for the app UI</string>
+    <string name="preference_access_title_activity_access" type="edu">Accessibility preferences</string>
+    <string name="preference_access_profiles" type="edu">Profiles</string>
+    <string name="preference_access_predefined_profiles" type="edu">Predefined profiles</string>
+    <string name="preference_access_active_profile" type="edu">Active profile</string>
+    <string name="preference_access_selected_profile" type="edu">Selected profile</string>
+    <string name="preference_access_change_profile" type="edu">Switch to predefined profiles</string>
+    <string name="preference_access_apply_profile" type="edu">Apply this profile</string>
+    <string name="preference_access_settings" type="edu">Settings</string>
+    <string name="preference_access_title_large_text" type="edu">Large text</string>
+    <string name="preference_access_summary_large_text" type="edu">The large text setting increases the text size.</string>
+    <string name="preference_access_choose_fontface" type="edu">Choose a fontface</string>
+    <string name="preference_access_title_fontface" type="edu">Fontface</string>
+    <string name="preference_access_summary_fontface" type="edu">Fontface allows you to choose a font style you prefer.</string>
+    <string name="preference_access_title_fontface_standard" type="edu">Standard</string>
+    <string name="preference_access_title_fontface_serif" type="edu">Serif</string>
+    <string name="preference_access_title_fontface_dyslexic" type="edu">Dyslexic</string>
+    <string name="preference_access_title_high_contrast" type="edu">High contrast</string>
+    <string name="preference_access_summary_high_contrast" type="edu">Increases the contrast and makes the text on bricks easier to read.</string>
+    <string name="preference_access_title_additional_icons" type="edu">Additional icons</string>
+    <string name="preference_access_summary_additional_icons" type="edu">Adds icons to categories and bricks to improve recognizability.</string>
+    <string name="preference_access_title_large_icons" type="edu">Large icons</string>
+    <string name="preference_access_summary_large_icons" type="edu">Increases the size of icons.</string>
+    <string name="preference_access_title_high_contrast_icons" type="edu">Icon contrast</string>
+    <string name="preference_access_summary_high_contrast_icons" type="edu">Changes the brick icons to high contrast icons.</string>
+    <string name="preference_access_title_largeelementspacing" type="edu">Large element spacing</string>
+    <string name="preference_access_summary_largeelementspacing" type="edu">The large element spacing increase the space between touchable elements.</string>
+    <string name="preference_access_title_starter_bricks" type="edu">Starter bricks</string>
+    <string name="preference_access_summary_starter_bricks" type="edu">Shows only starter bricks for ease of learning.</string>
+    <string name="preference_access_title_dragndrop_delay" type="edu">Drag\'n\'drop delay</string>
+    <string name="preference_access_summary_dragndrop_delay" type="edu">Adds delay to the drag\'n\'drop of bricks.</string>
+    <string name="preference_access_title_profile_standard" type="edu">Standard</string>
+    <string name="preference_access_summary_profile_standard" type="edu">The standard settings</string>
+    <string name="preference_access_title_profile_myprofile" type="edu">My Profile</string>
+    <string name="preference_access_summary_profile_myprofile" type="edu">My personal settings</string>
+    <string name="preference_access_title_profile_1" type="edu">Argus</string>
+    <string name="preference_access_summary_profile_1" type="edu">Visual improvement: High contrast, additional icons</string>
+    <string name="preference_access_title_profile_2" type="edu">Odin</string>
+    <string name="preference_access_summary_profile_2" type="edu">Visual improvement: Large text, large icons, large element spacing, high contrast</string>
+    <string name="preference_access_title_profile_3" type="edu">Fenrir</string>
+    <string name="preference_access_summary_profile_3" type="edu">Input improvement: Large element spacing, drag\'n\'drop delay</string>
+    <string name="preference_access_title_profile_4" type="edu">Tiro</string>
+    <string name="preference_access_summary_profile_4" type="edu">Learning: Starter bricks</string>
+    <string name="preference_access_title_created_profile" type="edu">Created profile</string>
+    <string name="preference_access_summary_created_profile" type="edu">You have created a new profile! The changes you make can be found in \'My Profile\'</string>
+    <string name="preference_access_title_restart" type="edu">Profile applied</string>
+    <string name="preference_access_summary_restart" type="edu">Pocket Code will be restarted to apply the changes you made.</string>
+    <!-- Hints -->
+    <string name="hint_accessibility" type="edu">Change the listed settings as you wish or switch to predefined profiles to choose a god to help you with these settings.</string>
+    <string name="hint_accessibility_profiles" type="edu">Choose a guide to help you with Create@School. Which one fits to you?</string>
+    <string name="hint_templates" type="edu">Choose one of the predefined templates and modify it.</string>
     <!-- Templates -->
-    <string name="templates_activity_title">Templates</string>
-    <string name="fetching_templates">Fetching templates</string>
-    <string name="error_fetching_templates">Error fetching templates</string>
-
+    <string name="templates_activity_title" type="edu">Templates</string>
+    <string name="fetching_templates" type="edu">Fetching templates</string>
+    <string name="error_fetching_templates" type="edu">Error fetching templates</string>
+    <string name="error_no_nolb_user" type="edu">This is a beta-version. You can only use it with a predefined school account.</string>
     <!-- Restricted Login -->
-    <string name="dialog_restricted_login_title">Restricted Login</string>
-    <string name="schoolreg_text">Please use the Create@School username and password that you have received from your school. As a school, please register on %1$s to receive complimentary accounts for your teachers and students.</string>
+    <string name="dialog_restricted_login_title" type="edu">Restricted Login</string>
+    <string name="schoolreg_text" type="edu">Please use the Create@School username and password that you have received from your school. As a school, please register on %1$s to receive complimentary accounts for your teachers and students.</string>
+    <string name="dialog_restricted_login_policy_text" type="edu" tools:ignore="UnusedResources">To offer you all collaborative benefits of our services and the associated account, it is necessary to collect certain data from you.\n\n
+
+    &#8226; Your Create@School account is not associated to any personal data within the scope of the application provider (Catrobat).
+        Furthermore, no such data gets collected through the provided services (as not explicitly stated otherwise).\n\n
+
+    &#8226; To avoid misuse of our services (e.g., through user contributed uploads or comments) for illegal purposes,
+        the user generated public data will be stored internally in a database, together with a timestamp and the used IP address.\n\n
+
+    &#8226; To improve our services (apps and websites) and to do scientific research on ICT and STEM education,
+        we use Google Analytics, Crashlytics and Firebase by Google Inc. to get metadata about the usage (e.g., timestamps, visited pages/screens, used operating system, and information about the network provider).
+        This analysis and the collected data is not linked to your profile and does not contain any personal information.\n\n
+
+    &#8226; All Services are provided by the non-profit free open source Catrobat project under the umbrella of the International Catrobat Association – Verein zur Förderung freier Software (Graz, Austria).\n\n
+
+    &#8226; To get in touch with us, please send an E-Mail to contact@catrobat.org or mail us to Catrobat,\n
+        c/o\n
+        Institute of Software Technology,\n
+        Inffeldgasse 16b/II,\n
+        8010 Graz, Austria.\n\n
+    </string>
+
     <!-- Action Template Strings -->
     <string name="action_project_variable_timer" tools:ignore="UnusedResources">timer</string>
     <string name="action_project_variable_score" tools:ignore="UnusedResources">score</string>

@@ -1,0 +1,179 @@
+/*
+ * Catroid: An on-device visual programming system for Android devices
+ * Copyright (C) 2010-2017 The Catrobat Team
+ * (<http://developer.catrobat.org/credits>)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * An additional term exception under section 7 of the GNU Affero
+ * General Public License, version 3, is available at
+ * http://developer.catrobat.org/license_additional_term
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+def flavorsToTranslate = new ArrayList<>()
+flavorsToTranslate.add("createatschool")
+flavorsToTranslate.add("phiro")
+
+def newline = System.getProperty("line.separator")
+
+task exportStringFiles {
+    def mainStringFileOriginal = "src/main/res/values"
+    def mainStringFileCopy = "build/generated/tmp/values"
+
+    println "copying main string file to " + mainStringFileCopy
+
+    copy {
+        from mainStringFileOriginal
+        into mainStringFileCopy
+	    include '*strings.xml'
+    }
+
+    File stringFile = file(mainStringFileCopy + "/strings.xml")
+    File stringFileTemplates = file(mainStringFileCopy + "/strings_templates.xml")
+
+    File stringFile2 = file("" + "/strings.xml")
+
+    InputStream stream = new FileInputStream(stringFile)
+    Reader reader = new BufferedReader(new InputStreamReader(stream))
+
+    StringBuffer outDataMain = new StringBuffer()
+    StringBuffer outDataTemplates = new StringBuffer()
+    boolean lastLineWasEdu = false
+    boolean resourcesTagOpened = false
+    String line
+
+    while ((line = reader.readLine()) != null) {
+        if (!resourcesTagOpened
+            || !line.contains("type=\"edu\"") && !line.contains("name=\"action_") //todo: replace strategy_ withtemplate_
+              && !(lastLineWasEdu && !line.contains("<string name="))) {  //this line belongs to an edu string!
+            outDataMain.append(line)
+            outDataMain.append(newline)
+
+            if (line.contains("<string name=") || line.trim().isEmpty()) {
+                lastLineWasEdu = false
+            }
+        }
+
+        if ((!resourcesTagOpened
+                || line.contains("name=\"action_")
+                || line.contains("type=\"edu\"")
+                || ((lastLineWasEdu && !line.contains("<string name="))))) {
+
+            outDataTemplates.append(line)
+            outDataTemplates.append(newline)
+            lastLineWasEdu = true
+        }
+
+        if (line.contains("<resources")) {
+            resourcesTagOpened = true
+
+            for (String flavorToTranslate : flavorsToTranslate) {
+                def mainStringFileFlavor = "src/" + flavorToTranslate + "/res/values/strings.xml"
+
+                InputStream flavorStream = new FileInputStream(file(mainStringFileFlavor))
+                Reader flavorReader = new BufferedReader(new InputStreamReader(flavorStream))
+
+                while ((line = flavorReader.readLine()) != null) {
+                    if (line.contains("<string name=\"app_name\">")) {
+                        outDataMain.append(line.replace("app_name", "app_name_" + flavorToTranslate))
+                        outDataMain.append(newline)
+                    }
+                }
+                flavorReader.close()
+            }
+        }
+    }
+    reader.close()
+
+    outDataTemplates.append("</resources>")
+
+    stringFile.write(outDataMain.toString())
+    stringFileTemplates.write(outDataTemplates.toString())
+}
+
+task importStringFiles {
+    Map outData = new HashMap<String, StringBuffer>()
+
+    def targetPathBase = "$projectDir/build/generated/tmp/import/" //"src/main/res/"
+
+    FileTree tree = fileTree(dir: 'build/generated/tmp')
+    tree.each { File file ->
+        StringBuffer outDataMain = new StringBuffer()
+        StringBuffer outDataFlavor = new StringBuffer()
+
+        def languageDir = file.path.substring(file.path.indexOf('values'), file.path.lastIndexOf('/'))
+        String targetPath = targetPathBase + languageDir
+        println targetPath
+
+        InputStream stream = new FileInputStream(file)
+        Reader reader = new BufferedReader(new InputStreamReader(stream))
+
+        String line
+
+        while ((line = reader.readLine()) != null) {
+            if (line.contains("<string name=\"app_name\">")) {
+                for (String flavorToTranslate : flavorsToTranslate) {
+                    def flavorFile = targetPathBase + flavorToTranslate + "/res/" + languageDir + "/strings.xml"
+                    println flavorFile
+
+                    /*
+                    File f = file(flavorFile)
+
+
+                    InputStream flavorStream = new FileInputStream(f)
+                    Reader flavorReader = new BufferedReader(new InputStreamReader(flavorStream))
+
+                    while ((line = flavorReader.readLine()) != null) {
+                        if (line.contains("<string name=\"app_name_" + flavorToTranslate + "\">")) {
+                            outDataFlavor.append(line.replace("app_name_" + flavorToTranslate, "app_name"))
+                            outDataFlavor.append(newline)
+                        }
+                    }
+                    flavorReader.close()
+                    */
+                }
+            } else {
+                outDataMain.append(line)
+                outDataMain.append(newline)
+            }
+
+
+        }
+        println(outDataMain)
+        outData.put(targetPath + "/strings.xml", outDataMain)
+
+        //writeFile(targetPath, outDataMain)
+
+        /*
+        File stringFile = file(targetPath + "/strings.xml")
+        if (!stringFile.exists()) {
+            stringFile.createNewFile()
+        }
+        stringFile.write(outDataMain.toString())
+        */
+        //stringFileTemplates.write(outDataFlavor.toString())
+    }
+
+    for (String key : outData.keySet()) {
+        writeFile(key, outData.get(key))
+    }
+}
+
+def writeFile(String targetPath, StringBuffer outData) {
+    File stringFile = file(targetPath)
+    if (!stringFile.exists()) {
+        //stringFile.createNewFile()
+    }
+    stringFile.write(outData.toString())
+}
