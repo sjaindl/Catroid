@@ -35,7 +35,6 @@ import static android.support.test.espresso.action.ViewActions.clearText;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
-import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 public class BrickFormulaEditTextDataInteractionWrapper extends DataInteractionWrapper {
@@ -49,7 +48,7 @@ public class BrickFormulaEditTextDataInteractionWrapper extends DataInteractionW
 	}
 
 	public <V extends Number> BrickFormulaEditTextDataInteractionWrapper checkShowsNumber(V value) {
-		dataInteraction.check(matches(withText(value + " ")));
+		dataInteraction.check(matches(withText((value + " ").replace("-", "- "))));
 		return new BrickFormulaEditTextDataInteractionWrapper(dataInteraction);
 	}
 
