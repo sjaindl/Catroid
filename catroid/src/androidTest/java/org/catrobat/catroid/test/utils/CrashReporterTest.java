@@ -174,7 +174,7 @@ public class CrashReporterTest {
 	@Test
 	public void testUnhandledCaughtExceptionSentOnCrashReportDisabled() {
 		CrashReporter.storeUnhandledException(exception);
-		editor.putBoolean(SettingsActivity.SETTINGS_CRASH_REPORTS, false);
+		editor.putBoolean(BaseSettingsActivity.SETTINGS_CRASH_REPORTS, false);
 		editor.commit();
 
 		CrashReporter.sendUnhandledCaughtException();
